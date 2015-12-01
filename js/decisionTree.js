@@ -35,6 +35,14 @@ function addBackTo(targetBranch){
   }
 }
 
+// return home
+$('#tree-reset').click(function() {
+  $('.tree li.active').removeClass('active')
+  $('.previous').removeClass('previous')
+  $('#branch-1').addClass('active')
+  return false;
+});
+
 // jump to specified branch, if provided
 function setActive(){
   if(params.length > 1){
@@ -81,6 +89,8 @@ function buildHTML(xml){
           }
         );
         html += '</ul>';
+        var resetText = $(xml).find('resetText').text();
+        $('#tree-reset').html( resetText );
         $('#branch-'+branchID).append(html);
       }
     }
