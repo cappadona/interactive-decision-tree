@@ -47,9 +47,9 @@ function setActive(){
 // load XML data
 function loadData(id){
   $.ajax({
-    type: "GET", 
-    url: "xml/tree" + id + ".xml", 
-    dataType: "xml", 
+    type: "GET",
+    url: "xml/tree" + id + ".xml",
+    dataType: "xml",
     success: function(xml){
       buildHTML(xml);
     }
