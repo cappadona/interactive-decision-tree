@@ -54,3 +54,20 @@ a.back-branch{
   position: absolute;
   bottom: 0;
 }
+.question {
+  margin-bottom: 1em;
+}
+.question h1,
+.question h2,
+.question h3,
+.question h4,
+.question h5,
+.question h6 {
+  margin-top: 0;
+}
+ul.tree li .question ul > li {
+  display: list-item;
+  margin: 0 0 0 1.2em;
+  border: none;
+  list-style-type: disc;
+}
