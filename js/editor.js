@@ -1,32 +1,32 @@
 $(document).ready( function(){
-																												
+
 	$('#branch-editor .btnCancel').click( function(){
 		var treeID = $('#treeID').attr( 'value' );
 		var formAction = $('#branch-editor').attr( 'action' );
 		document.location = formAction = '?cmd=edit-tree&treeID=' + treeID;
 	});
-	
+
 	$('#tree-editor .btnCancel').click( function(){
 		document.location = $('#tree-editor').attr( 'action' );
 	});
-	
+
 	$('.btnCreateNewTree').click( function(){
 		var newURL = document.location + '?cmd=new-tree';
 		document.location = newURL;
 	});
-	
+
 	$('#btnViewTree').click( function(){
 		var treeID = $('#treeID').attr( 'value' );
 		viewer = window.open( 'showTree.html?' + treeID, 'viewerWindow' );
 	});
-	
+
 	$('#revisions').change( function(){
 		var treeID = $('#treeID').attr( 'value' );
 		var revision = $('#revisions option:selected').attr( 'value' );
 		var newURL = document.location + '?cmd=edit-tree&treeID=' + treeID + '&revision=' + revision;
 		document.location = newURL;
 	});
-	
+
 	$('#btnAddFork').click( function(){
 		var branchID = $('#branchID').attr( 'value' );
 		if( $('.fork').length > 0 ){
@@ -41,19 +41,19 @@ $(document).ready( function(){
 		$('p#forks').append( newForkHTML );
 //		alert( forkID );
 	});
-	
+
 	$('.btnRemoveFork').live( 'click',function(){
 		$(this).parent().remove();
 	});
-	
-	$('#show-reset').click( 
+
+	$('#show-reset').click(
 	  function(e){
 	    if( $(this).is(':checked') ){
 	      $('#reset-text').prop("disabled", false);
       }else{
 	      $('#reset-text').prop("disabled", true);
       }
-	  } 
+	  }
 	);
-	
+
 });

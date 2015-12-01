@@ -47,9 +47,9 @@ function setActive(){
 // load XML data
 function loadData(id){
   $.ajax({
-    type: "GET", 
-    url: "xml/tree" + id + ".xml", 
-    dataType: "xml", 
+    type: "GET",
+    url: "xml/tree" + id + ".xml",
+    dataType: "xml",
     success: function(xml){
       buildHTML(xml);
     }
@@ -62,9 +62,12 @@ function buildHTML(xml){
   $(xml).find('branch').each(
     function(){
       branchID = dasherize($(this).attr('id'));
+      questionRaw = $(this).find('content').html();
+      // Allow for HTML within branch content
+      questionDecoded = $('<textarea>').html(questionRaw).text();
       $('.tree').append(
         '<li id="branch-'+branchID+'">'
-          +'<p>'+$(this).find('content').html()+'</p>'
+          +'<div class="question">'+questionDecoded+'</div>'
         +'</li>'
       );
       if($(this).find('fork').length > 0){
